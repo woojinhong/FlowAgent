@@ -1,6 +1,6 @@
 spring:
   config:
-    import: "classpath:db.settings"
+    import: 'classpath:db.properties'
   datasource:
     url: ${db.url}
     username: ${db.username}

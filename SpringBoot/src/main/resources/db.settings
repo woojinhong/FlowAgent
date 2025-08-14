@@ -1,4 +1,0 @@
-db.url=jdbc:mysql://localhost:3306/appdb?useSSL=false&serverTimezone=UTC&characterEncoding=utf8
-db.username=app_user
-db.password=app_pass
-db.driver=com.mysql.cj.jdbc.Driver
