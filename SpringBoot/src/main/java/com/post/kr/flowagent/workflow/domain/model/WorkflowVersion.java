@@ -1,4 +1,4 @@
-package com.post.kr.flowagent;
+package com.post.kr.flowagent.workflow.domain.model;
 
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
