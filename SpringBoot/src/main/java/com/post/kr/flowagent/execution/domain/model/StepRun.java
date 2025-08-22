@@ -1,4 +1,4 @@
-package com.post.kr.flowagent;
+package com.post.kr.flowagent.execution.domain.model;
 
 import jakarta.persistence.*;
 

@@ -1,5 +1,6 @@
-package com.post.kr.flowagent;
+package com.post.kr.flowagent.workflow.domain.model;
 
+import com.post.kr.flowagent.iam.domain.model.Tenant;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
