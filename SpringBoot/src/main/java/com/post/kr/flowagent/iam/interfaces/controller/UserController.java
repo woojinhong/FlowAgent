@@ -24,7 +24,7 @@ public class UserController {
     @GetMapping("/signup")
     public String showSignUpForm(Model model) {
         // Thymeleaf 폼에서 사용할 수 있도록 빈 DTO 객체를 모델에 담아 전달
-        model.addAttribute("signUpRequest", new SignUpRequest("", "", "", "", ""));
+        model.addAttribute("signUpRequest", new SignUpRequest("", "", "", ""));
         return "auth/signup"; // templates/auth/signup.html 파일을 렌더링
     }
 

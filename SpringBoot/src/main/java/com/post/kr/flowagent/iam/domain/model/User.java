@@ -1,13 +1,18 @@
 package com.post.kr.flowagent.iam.domain.model;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "users")
 public class User {
 
@@ -16,9 +21,7 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tenant_id", nullable = false)
-    private Tenant tenant;
+
 
     // password 필드 추가!
     @Column(name = "password", nullable = false)
@@ -36,6 +39,10 @@ public class User {
     @Column(name = "account_status", length = 255)
     private String accountStatus;
 
+    // User가 삭제되면 관련된 UserTenant 정보도 함께 삭제됩니다.
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<UserTenant> userTenants = new ArrayList<>();
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;
@@ -44,14 +51,5 @@ public class User {
     @Column(name = "update_at")
     private LocalDateTime updatedAt;
 
-    @Builder
-    public User(Tenant tenant, String password, String firstName, String lastName, String emailAddr, String accountStatus) {
-        this.tenant = tenant;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailAddr = emailAddr;
-        this.accountStatus = accountStatus;
-    }
 
 }
