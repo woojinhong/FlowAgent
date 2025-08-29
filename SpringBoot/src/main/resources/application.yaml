@@ -1,18 +1,22 @@
 spring:
   config:
-    import: 'classpath:db.properties'
+    import: 'classpath:db.properties' # 👈 이 부분이 db.properties 파일을 불러옵니다.
+
   datasource:
     url: ${db.url}
     username: ${db.username}
     password: ${db.password}
     driver-class-name: ${db.driver}
+
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         format_sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
     open-in-view: false
+
 logging:
   level:
     org.hibernate.SQL: debug

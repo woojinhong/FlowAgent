@@ -37,9 +37,8 @@ public class Trigger {
     @Column(name = "trigger_config", columnDefinition = "json")
     private String triggerConfig;
 
-    @Column(name = "is_active", nullable = false, length = 1)
-    @ColumnDefault("'T'")
-    private boolean isActive = true;
+    @Column(name = "is_active", nullable = false, columnDefinition = "boolean default true")
+    private boolean isActive;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
